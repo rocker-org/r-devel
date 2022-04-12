@@ -43,7 +43,7 @@ RUN apt-get update -qq \
 		libxt-dev \
 		mpack \
 		subversion \
-		tcl8.6-dev \
+		tcl-dev \
 		texinfo \
 		texlive-base \
 		texlive-extra-utils \
@@ -53,7 +53,7 @@ RUN apt-get update -qq \
 		texlive-latex-base \
 		texlive-latex-extra \
 		texlive-latex-recommended \
-		tk8.6-dev \
+		tk-dev \
 		x11proto-core-dev \
 		xauth \
 		xdg-utils \
