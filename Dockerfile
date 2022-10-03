@@ -1,7 +1,8 @@
 ## Emacs, make this -*- mode: sh; -*-
 
 ## start with the Docker 'base R' Debian-based image
-FROM r-base:latest
+#FROM r-base:latest
+FROM rocker/r-base:latest
 
 ## This handle reaches Carl and Dirk
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
@@ -11,8 +12,9 @@ MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuette
 ENV DEBIAN_FRONTEND noninteractive
 
 ## Remain current
-RUN apt-get update -qq \
-	&& apt-get dist-upgrade -y
+#RUN apt-get update -qq \
+#	&& apt-get dist-upgrade -y
+RUN apt-get update -qq
 
 ## From the Build-Depends of the Debian R package, plus subversion
 RUN apt-get update -qq \
