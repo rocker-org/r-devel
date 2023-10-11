@@ -81,6 +81,9 @@ RUN cd /tmp/R-devel \
 		AWK=/usr/bin/awk \
 		CFLAGS=$(R CMD config CFLAGS) \
 		CXXFLAGS=$(R CMD config CXXFLAGS) \
+		CXX11FLAGS=$(R CMD config CXX11FLAGS) \
+		CXX14FLAGS=$(R CMD config CXX14FLAGS) \
+		CXX17FLAGS=$(R CMD config CXX17FLAGS) \
 	./configure --enable-R-shlib \
                --without-blas \
                --without-lapack \
@@ -95,7 +98,7 @@ RUN cd /tmp/R-devel \
 RUN echo "R_LIBS=\${R_LIBS-'/usr/local/lib/R/site-library:/usr/local/lib/R/library:/usr/lib/R/library'}" >> /usr/local/lib/R/etc/Renviron
 
 ## Set default CRAN repo
-RUN echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"), download.file.method = "libcurl")' >> /usr/local/lib/R/etc/Rprofile.site
+RUN echo 'options(repos = c(CRAN = "https://cloud.r-project.org/"))' >> /usr/local/lib/R/etc/Rprofile.site
 
 ## Copy 'checkbashisms' (as a local copy from devscripts package)
 COPY checkbashisms /usr/local/bin
