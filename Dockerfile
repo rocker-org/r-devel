@@ -21,6 +21,7 @@ RUN apt-get update -qq \
 	&& apt-get install -t unstable -y --no-install-recommends \
 		bash-completion \
 		bison \
+                curl \
 		debhelper \
 		default-jdk \
 		g++ \
@@ -92,7 +93,9 @@ RUN cd /tmp/R-devel \
                --program-suffix=dev \
 	&& make \
 	&& make install \
-	&& rm -rf /tmp/R-devel
+	&& rm -rf /tmp/R-devel /tmp/downloaded_packages/ /tmp/*.rds \
+        && apt autoremove -qy \
+        && apt autoclean
 
 ## Set Renviron to get libs from base R install
 RUN echo "R_LIBS=\${R_LIBS-'/usr/local/lib/R/site-library:/usr/local/lib/R/library:/usr/lib/R/library'}" >> /usr/local/lib/R/etc/Renviron
