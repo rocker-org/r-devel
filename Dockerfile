@@ -9,7 +9,7 @@ MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuette
 
 ## Needed in case a base package has an interactive question
 ## (as e.g. base-passwd in Oct 2020)
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 ## Remain current
 #RUN apt-get update -qq \
